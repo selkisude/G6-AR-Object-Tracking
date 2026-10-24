@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 28
-  productGUID: d478787dc84994047ad3828b5afd3e99
+  productGUID: b04703da8673eac43994bfb00018e0c3
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: selkisudee
+  productName: DinosaurAR
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -846,14 +846,14 @@ PlayerSettings:
   editorAssembliesCompatibilityLevel: 1
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: selkisudee
+  metroPackageName: DinosaurAR
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: selkisudee
+  metroApplicationDescription: DinosaurAR
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -924,10 +924,10 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 1
   windowsGamepadBackendHint: 0
-  cloudProjectId: 2905d4cf-a6a0-4e3f-9612-89fd4fb1de8a
+  cloudProjectId: a3c64804-9729-415b-9f4b-35d1a61a634f
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: selkisudee
+  projectName: DinosaurAR
   organizationId: sanstheskeletonfromut
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
