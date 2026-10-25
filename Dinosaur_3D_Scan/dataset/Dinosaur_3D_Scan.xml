@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+<Tracking>
+<ModelTarget name="Dinosaur_3D_Scan" motionHint="adaptive" trackingMode="scan" optimizeTrackingFor="default"/>
+
+</Tracking>
+
+<Assembly name="Dinosaur_3D_Scans_assembly" assemblyId="836f13722c8844e1b8a3ed773af2932f">
+<Part name="Dinosaur_3D_Scan" translation="0 0 0" rotation="AD: 0 0 1 0"/>
+<EntryPoint name="GuideView_0001" translation="0 0.0708576 0.36668" rotation="AD: 0.99975 0.0758961 -0.317751 205.583" trained="no">
+
+</EntryPoint>
+
+</Assembly>
+
+</QCARConfig>
