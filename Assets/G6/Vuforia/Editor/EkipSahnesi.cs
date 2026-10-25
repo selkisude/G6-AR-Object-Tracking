@@ -48,6 +48,14 @@ namespace G6.EditorTools
                     SceneManager.MoveGameObjectToScene(root, main);
                     root.transform.SetParent(group.transform, true);
                     if (root.name == "ModelTarget") root.name = "ModelTarget_" + rename;
+                    foreach (var mt in root.GetComponentsInChildren<Vuforia.ModelTargetBehaviour>(true))
+                    {
+                        // Kapalı başlar: Vuforia aynı anda tek Model Target etkin tutar, sırayı
+                        // VuforiaModelTargetLoader yönetir. Silüet de kapalı.
+                        mt.GuideViewMode = Vuforia.ModelTargetBehaviour.GuideViewDisplayMode.NoGuideView;
+                        mt.enabled = false;
+                        EditorUtility.SetDirty(mt);
+                    }
                 }
                 EditorSceneManager.CloseScene(team, true);
                 Debug.Log($"[G6] {rename} sahnesi eklendi: {group.transform.childCount} kök nesne");

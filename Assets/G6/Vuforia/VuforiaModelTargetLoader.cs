@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using Vuforia;
@@ -38,10 +39,16 @@ namespace G6
 
         ModelTargetBehaviour modelTarget;
         VuforiaTrackingSource source;
-        readonly System.Collections.Generic.Dictionary<ObserverBehaviour, bool> others = new();
+
+        // Vuforia aynı anda yalnızca bir Model Target'ı etkin tutabilir. Sahnede birden fazla Model Target varsa
+        // (ekibin kitap ve dinozor hedefleri) hiçbiri tanınmazken sırayla etkinleştirilir; tanınan açık kalır.
+        readonly List<ModelTargetBehaviour> rota = new();
+        readonly Dictionary<ModelTargetBehaviour, Status> statuses = new();
+        readonly Dictionary<ModelTargetBehaviour, StatusInfo> infos = new();
+        int rotaIndex;
         bool otherTracked;
         int viewIndex;
-        float viewTimer;
+        float timer;
 
         void Start()
         {
@@ -65,35 +72,41 @@ namespace G6
             twin.transform.localPosition = Vector3.zero;
             twin.transform.localRotation = Quaternion.identity;
 
+            // Sahnedeki diğer Model Target'lar önce kapatılır; yoksa ikinci hedef etkinleştirilemez.
+            var sceneTargets = FindObjectsByType<ModelTargetBehaviour>(FindObjectsSortMode.None);
+            foreach (var mt in sceneTargets) mt.enabled = false;
+
             modelTarget = VuforiaBehaviour.Instance.ObserverFactory.CreateModelTarget(dataSetPath, targetName);
             if (modelTarget != null)
             {
                 modelTarget.GuideViewMode = ModelTargetBehaviour.GuideViewDisplayMode.NoGuideView;
                 source.Add(modelTarget, Vector3.zero, Quaternion.identity);
+                AddToRota(modelTarget);
                 Debug.Log("[G6] Model Target hazır: " + targetName);
             }
             else Debug.LogWarning($"[G6] Model Target oluşturulamadı: {dataSetPath} / {targetName}");
 
+            foreach (var mt in sceneTargets)
+            {
+                AddToRota(mt);
+                Debug.Log("[G6] Ek Model Target sıraya alındı: " + mt.TargetName);
+            }
+            if (modelTarget == null && rota.Count > 0) rota[0].enabled = true;
+
             app.UseSource(source);
             if (!string.IsNullOrEmpty(imagePath)) StartCoroutine(CreateImageTarget());
-            WatchOtherTargets();
         }
 
-        /// <summary>
-        /// Sahnede elle yerleştirilmiş başka hedefler varsa (ekibin kitap ve dinozor Model Target'ları) onların da
-        /// silüetini kapatır ve takip durumlarını izler: biri bulununca tarama halkası gizlenir.
-        /// </summary>
-        void WatchOtherTargets()
+        void AddToRota(ModelTargetBehaviour mt)
         {
-            foreach (var ob in FindObjectsByType<ObserverBehaviour>(FindObjectsSortMode.None))
+            rota.Add(mt);
+            statuses[mt] = Status.NO_POSE;
+            infos[mt] = StatusInfo.NORMAL;
+            mt.OnTargetStatusChanged += (b, s) =>
             {
-                if (ob == modelTarget || ob.transform.IsChildOf(source.transform)) continue;
-                if (ob is ModelTargetBehaviour mt) mt.GuideViewMode = ModelTargetBehaviour.GuideViewDisplayMode.NoGuideView;
-                others[ob] = false;
-                ob.OnTargetStatusChanged += (b, s) =>
-                    others[b] = s.Status == Status.TRACKED || s.Status == Status.EXTENDED_TRACKED;
-                Debug.Log("[G6] Ek hedef izleniyor: " + ob.TargetName);
-            }
+                statuses[mt] = s.Status;
+                infos[mt] = s.StatusInfo;
+            };
         }
 
         /// <summary>Fotoğrafı StreamingAssets'ten okur (Android'de APK içinde olduğu için web isteğiyle).</summary>
@@ -122,20 +135,37 @@ namespace G6
 
         void Update()
         {
-            bool any = false;
-            foreach (var v in others.Values) any |= v;
-            if (any != otherTracked) app.SetOtherTargetTracked(otherTracked = any);
+            if (rota.Count == 0) return;
 
-            if (modelTarget == null || guideViews.Length == 0 || source.IsTracked)
+            // Başka bir nesne (kitap, dinozor) takipteyse Arduino'nun tarama halkası gizlenir.
+            bool other = false;
+            foreach (var kv in statuses)
+                if (kv.Key != modelTarget && (kv.Value == Status.TRACKED || kv.Value == Status.EXTENDED_TRACKED)) other = true;
+            if (other != otherTracked) app.SetOtherTargetTracked(otherTracked = other);
+
+            // Etkin hedef nesneyi görüyorsa sıra durur.
+            var active = rota[rotaIndex];
+            if (statuses[active] == Status.TRACKED)
             {
-                viewTimer = 0f;
+                timer = 0f;
                 return;
             }
-            // Model Target yalnızca etkin kılavuz açısına yakın bakışta tanır; açıları görünmeden sırayla dene.
-            viewTimer += Time.deltaTime;
-            if (viewTimer > cycleSeconds)
+
+            // 360° (Advanced) hedefler her etkinleşmede birkaç saniye hazırlanır; hazırlık süresi sayılmaz.
+            if (infos[active] != StatusInfo.INITIALIZING) timer += Time.deltaTime;
+            if (timer < cycleSeconds) return;
+            timer = 0f;
+
+            // Sıradaki hedefe geç. Arduino'nun sırası geldiğinde bir sonraki kılavuz açısı denenir
+            // (Model Target yalnızca etkin kılavuz açısına yakın bakışta tanır).
+            if (rota.Count > 1)
             {
-                viewTimer = 0f;
+                active.enabled = false;
+                rotaIndex = (rotaIndex + 1) % rota.Count;
+                rota[rotaIndex].enabled = true;
+            }
+            if (rota[rotaIndex] == modelTarget && guideViews.Length > 0)
+            {
                 viewIndex = (viewIndex + 1) % guideViews.Length;
                 modelTarget.SetActiveGuideViewName(guideViews[viewIndex]);
             }
