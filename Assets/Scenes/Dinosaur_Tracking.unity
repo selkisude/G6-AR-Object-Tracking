@@ -292,10 +292,10 @@ LineRenderer:
   m_MaskInteraction: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
-  - {x: 0.004, y: 0.025000006, z: 0.0000000018626451}
+  - {x: 0.0029999996, y: 0.018999994, z: 0.049999997}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.00087728
+    widthMultiplier: 0.0004
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -544,9 +544,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::G6.Annotations.G6AnnotationPoint
   title: Head
-  description: The skull houses the brain and the jaws. In theropod dinosaurs the
-    skull was lightened by large openings (fenestrae), saving weight while leaving
-    room for powerful jaw muscles.
+  description: "Ba\u015F b\xF6lgesi, dinozor fig\xFCr\xFCn\xFCn kafa yap\u0131s\u0131n\u0131
+    ve y\xFCz detaylar\u0131n\u0131 temsil eder."
   color: {r: 0.98, g: 0.62, b: 0.2, a: 1}
   anchorMarker: {fileID: 804328753}
   label: {fileID: 892858074}
@@ -999,10 +998,10 @@ LineRenderer:
   m_MaskInteraction: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
-  - {x: 0.0139999995, y: 0.016000003, z: -0.02799999}
+  - {x: 0.069199994, y: 0.028499998, z: 0.0051999986}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.00087728
+    widthMultiplier: 0.0004
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -1141,10 +1140,10 @@ LineRenderer:
   m_MaskInteraction: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
-  - {x: 0.039000005, y: 0.0119999945, z: 0.007999999}
+  - {x: 0.053999998, y: 0.0069999993, z: -0.012}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.00087728
+    widthMultiplier: 0.0004
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -1395,10 +1394,10 @@ LineRenderer:
   m_MaskInteraction: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
-  - {x: -0.029999994, y: -0.011000001, z: 0.022}
+  - {x: -0.011, y: -0.019, z: 0.03}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.00087728
+    widthMultiplier: 0.0004
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -1645,8 +1644,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 529542524}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.016999999, y: -0.012, z: 0.030000001}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.039, y: -0.028, z: -0.022000002}
   m_LocalScale: {x: 0.045, y: 0.045, z: 0.045}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2233,10 +2232,10 @@ LineRenderer:
   m_MaskInteraction: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
-  - {x: -0.03599999, y: 0.015000008, z: -0.0040000007}
+  - {x: -0.011, y: 0.04, z: 0.051}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.00087728
+    widthMultiplier: 0.0004
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -2567,9 +2566,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::G6.Annotations.G6AnnotationPoint
   title: Back Spikes
-  description: A row of bony spikes runs along the back. Structures like these may
-    have been used for display, recognising members of the same species, defence,
-    or helping to regulate body temperature.
+  description: "S\u0131rt \xE7\u0131k\u0131nt\u0131lar\u0131, dinozor fig\xFCr\xFCn\xFCn
+    s\u0131rt hatt\u0131 boyunca uzanan dikenimsi yap\u0131lard\u0131r."
   color: {r: 0.62, g: 0.45, b: 0.95, a: 1}
   anchorMarker: {fileID: 1717646056}
   label: {fileID: 1180152061}
@@ -3304,7 +3302,7 @@ Transform:
   m_GameObject: {fileID: 883209815}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.002, y: 0.112, z: -0.052}
+  m_LocalPosition: {x: -0.0112, y: 0.1245, z: 0.0248}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3326,9 +3324,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::G6.Annotations.G6AnnotationPoint
   title: Eye
-  description: Many dinosaurs had large eyes supported by a ring of bones called
-    the sclerotic ring. Eye size and position hint at whether an animal was active
-    by day or night and how well it judged distance.
+  description: "G\xF6z b\xF6lgesi, fig\xFCr\xFCn y\xFCz\xFCndeki belirgin anatomik
+    detaylardan biridir."
   color: {r: 0.3, g: 0.8, b: 0.95, a: 1}
   anchorMarker: {fileID: 430056280}
   label: {fileID: 2040112118}
@@ -3362,8 +3359,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 892858071}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0039999997, y: 0.025000006, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.0029999996, y: 0.018999994, z: 0.049999997}
   m_LocalScale: {x: 0.045, y: 0.045, z: 0.045}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3687,9 +3684,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::G6.Annotations.G6AnnotationPoint
   title: Tail
-  description: The muscular tail counterbalanced the head and body over the hips.
-    In many species it also anchored the large caudofemoralis muscle that pulled
-    the legs backwards when walking.
+  description: "Kuyruk, dinozorun g\xF6vdesinden arkaya do\u011Fru uzanan b\xF6l\xFCm\xFCd\xFCr."
   color: {r: 0.95, g: 0.85, b: 0.3, a: 1}
   anchorMarker: {fileID: 2121209776}
   label: {fileID: 1771078046}
@@ -3780,10 +3775,10 @@ LineRenderer:
   m_MaskInteraction: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
-  - {x: 0.016999997, y: -0.012000001, z: 0.030000001}
+  - {x: 0.039, y: -0.028, z: -0.022000002}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.00087728
+    widthMultiplier: 0.0004
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -3865,8 +3860,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1180152058}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.036, y: 0.015000008, z: -0.0040000007}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.011, y: 0.04, z: 0.051}
   m_LocalScale: {x: 0.045, y: 0.045, z: 0.045}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3944,7 +3939,7 @@ Transform:
   m_GameObject: {fileID: 1291898008}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.036, y: 0.05, z: 0.014}
+  m_LocalPosition: {x: 0.004, y: 0.055, z: 0.042}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3966,9 +3961,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::G6.Annotations.G6AnnotationPoint
   title: Body
-  description: The torso held the heart, lungs and digestive organs. Many dinosaurs
-    had a bird-like breathing system with air sacs, which supplied oxygen efficiently
-    for an active lifestyle.
+  description: "G\xF6vde, fig\xFCr\xFCn ana k\xFCtlesini olu\u015Fturan ve di\u011Fer
+    uzuvlar\u0131 birle\u015Ftiren b\xF6lgedir."
   color: {r: 0.4, g: 0.85, b: 0.45, a: 1}
   anchorMarker: {fileID: 1027089250}
   label: {fileID: 1463872973}
@@ -4393,8 +4387,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1463872970}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.039000005, y: 0.011999998, z: 0.007999999}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.053999998, y: 0.0069999993, z: -0.012}
   m_LocalScale: {x: 0.045, y: 0.045, z: 0.045}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4565,7 +4559,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.1932, y: 2.1932, z: 2.1932}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 112821372}
@@ -4599,6 +4593,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1524202070}
   - component: {fileID: 1524202069}
+  - component: {fileID: 1524202071}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -4614,7 +4609,7 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1524202068}
   m_Enabled: 1
-  serializedVersion: 12
+  serializedVersion: 13
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
   m_Intensity: 1
@@ -4666,7 +4661,7 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
-  m_ShadowRadius: 0
+  m_ShapeRadius: 0
   m_ShadowAngle: 0
   m_LightUnit: 1
   m_LuxAtDistance: 1
@@ -4686,6 +4681,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &1524202071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1524202068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalLightData
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_CustomShadowLayers: 0
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
+  m_RenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_ShadowRenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_Version: 4
+  m_LightLayerMask: 1
+  m_ShadowLayerMask: 1
+  m_RenderingLayers: 1
+  m_ShadowRenderingLayers: 1
 --- !u!1 &1570378311
 GameObject:
   m_ObjectHideFlags: 0
@@ -4961,8 +4985,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::G6.Annotations.G6AnnotationPoint
   title: Legs
-  description: Dinosaurs held their legs directly beneath the body instead of sprawling
-    them to the side. This upright posture made walking and running far more efficient.
+  description: "Bacaklar, dinozor fig\xFCr\xFCn\xFCn alt b\xF6l\xFCm\xFCnde bulunan
+    uzuvlard\u0131r."
   color: {r: 0.95, g: 0.4, b: 0.45, a: 1}
   anchorMarker: {fileID: 961217440}
   label: {fileID: 529542527}
@@ -5198,8 +5222,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1771078043}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.030000001, y: -0.011, z: 0.022}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.011, y: -0.019, z: 0.03}
   m_LocalScale: {x: 0.045, y: 0.045, z: 0.045}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5680,6 +5704,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
+  m_UseReflectionProbes: 0
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -5731,8 +5756,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2040112115}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.014, y: 0.016000003, z: -0.027999997}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.069199994, y: 0.028499998, z: 0.0051999986}
   m_LocalScale: {x: 0.045, y: 0.045, z: 0.045}
   m_ConstrainProportionsScale: 0
   m_Children:
