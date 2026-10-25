@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<QCARInfo>
+    <TargetSet version="36.0" toolVersion="v7.4.3">
+        <ModelTarget name="Kitap" targetId="dfb1b7dd592f440fadbdbc0e952c34a5" version="14.0" toolVersion="v7.4.3" bbox="-0.0975 -1.49012e-08 -0.1325 0.0975 0.045 0.1325" trackingMode="car" upVector="0.0 1.0 0.0" optimizeTrackingFor="default" realisticTextures="no" />
+    </TargetSet>
+    <Assembly name="Kitap" assemblyId="de372059696747c6aad2e505eadd6fe3">
+        <Part name="Kitap" translation="0 0 0" rotation="AD: 0 0 1 0" />
+        <EntryPoint name="(none)" trained="yes" />
+    </Assembly>
+</QCARInfo>

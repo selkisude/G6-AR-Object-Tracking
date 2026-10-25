@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARInfo>
+<TargetSet version="27.0" toolVersion="11.4.4">
+<ModelTarget name="Kitap" targetId="59b924cefded4cb8a1172fa67ce1aae7" version="14.0" toolVersion="11.4.4" bbox="-0.0975 -1.49012e-08 -0.1325 0.0975 0.045 0.1325" upVector="0 1 0" previewImage="59b924cefded4cb8a1172fa67ce1aae7_preview.jpg"/>
+
+</TargetSet>
+
+<Assembly name="Kitaps_assembly" assemblyId="cc83eb2c3043485fa6b308bdc07f8da1">
+<Part name="Kitap" translation="0 0 0" rotation="AD: 0 0 1 0"/>
+<EntryPoint name="GuideView_0000" translation="-0.0160033 -0.0450941 0.637825" rotation="AD: 0.999303 0.105474 -0.393636 207.869" image="Kitap_GuideView_0000.png" trained="no">
+
+</EntryPoint>
+
+</Assembly>
+
+</QCARInfo>

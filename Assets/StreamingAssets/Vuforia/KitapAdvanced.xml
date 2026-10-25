@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<QCARConfig>
+    <Tracking>
+        <ModelTarget name="Kitap" trackingMode="car" motionHint="adaptive" upVector="0.0 1.0 0.0" optimizeTrackingFor="default"></ModelTarget>
+    </Tracking>
+    <Assembly name="Kitap" assemblyId="de372059696747c6aad2e505eadd6fe3">
+        <Part name="Kitap" translation="0 0 0" rotation="AD: 0 0 1 0"></Part>
+        <EntryPoint name="(none)" trained="yes"></EntryPoint>
+    </Assembly>
+</QCARConfig>
