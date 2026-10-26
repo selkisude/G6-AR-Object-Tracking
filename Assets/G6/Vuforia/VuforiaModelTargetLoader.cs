@@ -52,6 +52,7 @@ namespace G6
 
         void Start()
         {
+            // Vuforia kamerayı açıp hazır olduğunda OnStarted çalışsın. Hedefler ancak bundan sonra kurulabilir.
             VuforiaApplication.Instance.OnVuforiaStarted += OnStarted;
         }
 
@@ -65,17 +66,21 @@ namespace G6
         {
             VuforiaApplication.Instance.OnVuforiaStarted -= OnStarted;
 
-            // İkiz, takip kaynağının taşıdığı çapanın altına girer.
+            // ADIM 1 — Çapa: boş bir nesne. Vuforia kartı her gördüğünde bu çapayı kartın konumuna taşır.
+            // Hologram (twin) çapanın çocuğu yapılır; böylece çapa nereye giderse hologram ve etiketler de oraya gider.
             var anchor = new GameObject("TakipCapasi");
             source = anchor.AddComponent<VuforiaTrackingSource>();
             twin.transform.SetParent(anchor.transform, false);
             twin.transform.localPosition = Vector3.zero;
             twin.transform.localRotation = Quaternion.identity;
 
-            // Sahnedeki diğer Model Target'lar önce kapatılır; yoksa ikinci hedef etkinleştirilemez.
+            // ADIM 2 — Ekip hedefleri (kitap, dinozor) sahnede hazır durur. Vuforia aynı anda tek Model Target
+            // açık tutabildiği için önce hepsi kapatılır; yoksa ikinci hedef "Failed to activate observer" verir.
             var sceneTargets = FindObjectsByType<ModelTargetBehaviour>(FindObjectsSortMode.None);
             foreach (var mt in sceneTargets) mt.enabled = false;
 
+            // ADIM 3 — Arduino'nun Model Target'ı: StreamingAssets/Vuforia/G6_ArduinoMega.xml veritabanından,
+            // Model Target CLI ile kartın 3B modelinden üretilmiş hedef. Silüet gösterilmez (NoGuideView).
             modelTarget = VuforiaBehaviour.Instance.ObserverFactory.CreateModelTarget(dataSetPath, targetName);
             if (modelTarget != null)
             {
@@ -86,6 +91,7 @@ namespace G6
             }
             else Debug.LogWarning($"[G6] Model Target oluşturulamadı: {dataSetPath} / {targetName}");
 
+            // ADIM 4 — Kitap ve dinozor hedefleri sıraya eklenir; Update() onları sırayla açıp kapatır.
             foreach (var mt in sceneTargets)
             {
                 AddToRota(mt);
@@ -93,10 +99,12 @@ namespace G6
             }
             if (modelTarget == null && rota.Count > 0) rota[0].enabled = true;
 
+            // ADIM 5 — Uygulamaya "takip bilgisini bu kaynaktan al" denir, sonra fotoğraf hedefi kurulur.
             app.UseSource(source);
             if (!string.IsNullOrEmpty(imagePath)) StartCoroutine(CreateImageTarget());
         }
 
+        /// <summary>Hedefi sıraya ekler ve durumunu (bulundu / kayıp / hazırlanıyor) izlemeye başlar.</summary>
         void AddToRota(ModelTargetBehaviour mt)
         {
             rota.Add(mt);
@@ -122,6 +130,8 @@ namespace G6
                 yield break;
             }
 
+            // Fotoğraf + kartın gerçek genişliği (0,1016 m) ile Image Target kurulur. Vuforia fotoğraftaki
+            // doku noktalarını arar; bu yüzden kartı neredeyse her açıdan, silüet olmadan anında tanır.
             var tex = DownloadHandlerTexture.GetContent(req);
             var target = VuforiaBehaviour.Instance.ObserverFactory.CreateImageTarget(tex, imageWidth, "UstGorunum");
             if (target == null)
@@ -129,10 +139,15 @@ namespace G6
                 Debug.LogWarning("[G6] Image Target oluşturulamadı.");
                 yield break;
             }
+            // Fotoğraf kartın üst yüzeyinde durur; hologramın tabanı 1,6 mm (kart kalınlığı) aşağıdadır: imageOffset.
             source.Add(target, imageOffset, Quaternion.identity);
             Debug.Log("[G6] Image Target hazır.");
         }
 
+        /// <summary>
+        /// Her karede çalışır. Hiçbir hedef nesneyi görmüyorsa birkaç saniyede bir sıradaki Model Target'ı açar:
+        /// Arduino, kitap, dinozor, yine Arduino... Bir hedef nesneyi görünce sıra durur.
+        /// </summary>
         void Update()
         {
             if (rota.Count == 0) return;
