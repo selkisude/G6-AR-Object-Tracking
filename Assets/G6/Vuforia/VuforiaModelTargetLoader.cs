@@ -151,8 +151,9 @@ namespace G6
                 return;
             }
 
-            // 360° (Advanced) hedefler her etkinleşmede birkaç saniye hazırlanır; hazırlık süresi sayılmaz.
-            if (infos[active] != StatusInfo.INITIALIZING) timer += Time.deltaTime;
+            // 360° (Advanced) hedefler her etkinleşmede birkaç saniye hazırlanır: hazırlanırken süre yavaş akar
+            // (hedefe yaklaşık 3 kat süre tanınır), ama hazırlık bitmese de sıra kilitlenmez.
+            timer += Time.deltaTime * (infos[active] == StatusInfo.INITIALIZING ? 0.35f : 1f);
             if (timer < cycleSeconds) return;
             timer = 0f;
 
