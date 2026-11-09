@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+<Tracking>
+<ModelTarget name="Kitap" motionHint="adaptive" trackingMode="car" optimizeTrackingFor="default"/>
+
+</Tracking>
+
+<Assembly name="Kitaps_assembly" assemblyId="cc83eb2c3043485fa6b308bdc07f8da1">
+<Part name="Kitap" translation="0 0 0" rotation="AD: 0 0 1 0"/>
+<EntryPoint name="GuideView_0000" translation="-0.0160033 -0.0450941 0.637825" rotation="AD: 0.999303 0.105474 -0.393636 207.869" trained="no">
+
+</EntryPoint>
+
+</Assembly>
+
+</QCARConfig>
